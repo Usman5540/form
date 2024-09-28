@@ -55,9 +55,15 @@ let customers = [
 
 
 // Route: Login Page
-app.get("/", (req, res) => {
-  res.render("login");
+app.get('/', (req, res) => {
+    res.render('login', (err) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Something went wrong while rendering the page');
+        }
+    });
 });
+
 
 // Route: Dashboard
 app.get("/dashboard", (req, res) => {
