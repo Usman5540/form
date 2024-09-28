@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer List</title>
     <link rel="stylesheet" href="/style.css" />
-    <title>Customers</title>
   </head>
   <body>
     <div class="container">
@@ -14,18 +14,36 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Company</th>
+            <th>Person</th>
+            <th>Designation</th>
+            <th>Office Address</th>
+            <th>Office Phone</th>
+            <th>Residence Address</th>
+            <th>Fax</th>
+            <th>Mobile</th>
             <th>Email</th>
+            <th>Website</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <% customers.forEach(customer => { %>
           <tr>
             <td><%= customer.id %></td>
-            <td><%= customer.name %></td>
+            <td><%= customer.company %></td>
+            <td><%= customer.person %></td>
+            <td><%= customer.designation %></td>
+            <td><%= customer.officeAddress %></td>
+            <td><%= customer.officePhone %></td>
+            <td><%= customer.residenceAddress %></td>
+            <td><%= customer.fax %></td>
+            <td><%= customer.mobile %></td>
             <td><%= customer.email %></td>
+            <td><%= customer.website %></td>
+            <td><%= customer.description %></td>
           </tr>
-          <% }) %>
+          <% }); %>
         </tbody>
       </table>
     </div>

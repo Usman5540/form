@@ -8,28 +8,54 @@ app.use(express.urlencoded({ extended: true }));
 
 // Sample in-memory data
 let customers = [
-  { id: 1, name: 'Ahmed Khan', email: 'ahmed.khan@example.pk' },
-  { id: 2, name: 'Fatima Bano', email: 'fatima.bano@example.pk' },
-  { id: 3, name: 'Ali Raza', email: 'ali.raza@example.pk' },
-  { id: 4, name: 'Ayesha Malik', email: 'ayesha.malik@example.pk' },
-  { id: 5, name: 'Usman Ahmed', email: 'usman.ahmed@example.pk' },
-  { id: 6, name: 'Zara Saeed', email: 'zara.saeed@example.pk' },
-  { id: 7, name: 'Bilal Khan', email: 'bilal.khan@example.pk' },
-  { id: 8, name: 'Sana Javed', email: 'sana.javed@example.pk' },
-  { id: 9, name: 'Hassan Ali', email: 'hassan.ali@example.pk' },
-  { id: 10, name: 'Mehwish Tariq', email: 'mehwish.tariq@example.pk' },
-  { id: 11, name: 'Kamran Sheikh', email: 'kamran.sheikh@example.pk' },
-  { id: 12, name: 'Nida Yasir', email: 'nida.yasir@example.pk' },
-  { id: 13, name: 'Farhan Aslam', email: 'farhan.aslam@example.pk' },
-  { id: 14, name: 'Rabia Khan', email: 'rabia.khan@example.pk' },
-  { id: 15, name: 'Imran Haider', email: 'imran.haider@example.pk' }
+  {
+    id: 1,
+    company: 'Tech Innovations',
+    person: 'Ahmed Khan',
+    designation: 'CEO',
+    officeAddress: '123 Tech Street, Silicon Valley',
+    officePhone: '123-456-7890',
+    residenceAddress: '456 Residential Ave, Silicon Valley',
+    fax: '123-456-7891',
+    mobile: '987-654-3210',
+    email: 'ahmed.khan@techinnovations.com',
+    website: 'www.techinnovations.com',
+    description: 'Leading technology solutions provider.'
+  },
+  {
+    id: 2,
+    company: 'Creative Designs',
+    person: 'Fatima Bano',
+    designation: 'Creative Director',
+    officeAddress: '789 Design Rd, New York',
+    officePhone: '321-654-0987',
+    residenceAddress: '321 Home St, New York',
+    fax: '321-654-0988',
+    mobile: '654-321-9870',
+    email: 'fatima.bano@creativedesigns.com',
+    website: 'www.creativedesigns.com',
+    description: 'Providing innovative design solutions.'
+  },
+  {
+    id: 3,
+    company: 'Green Energy Co.',
+    person: 'Ali Raza',
+    designation: 'Operations Manager',
+    officeAddress: '101 Green Blvd, San Francisco',
+    officePhone: '456-789-0123',
+    residenceAddress: '202 Home Ln, San Francisco',
+    fax: '456-789-0124',
+    mobile: '789-012-3456',
+    email: 'ali.raza@greenenergy.com',
+    website: 'www.greenenergy.com',
+    description: 'Sustainable energy solutions for the future.'
+  }
 ];
 
 
 // Route: Login Page
 app.get("/", (req, res) => {
   res.render("login");
-// res.end("working")
 });
 
 // Route: Dashboard
@@ -49,11 +75,25 @@ app.get("/customers/new", (req, res) => {
 
 // Handle Add New Customer Form
 app.post("/customers/new", (req, res) => {
-  const { name, email } = req.body;
-  customers.push({ id: customers.length + 1, name, email });
+  const { company, person, designation, officeAddress, officePhone, residenceAddress, fax, mobile, email, website, description } = req.body;
+  customers.push({
+    id: customers.length + 1,
+    company,
+    person,
+    designation,
+    officeAddress,
+    officePhone,
+    residenceAddress,
+    fax,
+    mobile,
+    email,
+    website,
+    description
+  });
   res.redirect("/customers");
 });
 
+// Start server
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

@@ -71,16 +71,28 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 label {
     font-weight: bold;
+    color: #333;
 }
 
-input {
+input,
+textarea {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    /* Allows vertical resizing */
 }
 
 button {
@@ -112,7 +124,8 @@ button {
         gap: 10px;
     }
 
-    input {
+    input,
+    textarea {
         padding: 8px;
     }
 }
@@ -141,9 +154,10 @@ button {
         flex-direction: column;
         gap: 8px;
     }
+
+    input,
+    textarea {
+        padding: 6px;
+        font-size: 14px;
+    }
 }
-
-
-
-
-
